@@ -4,16 +4,13 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 public class WritingReadingFile {
 
     public void writeJsonObject(String jsonObjectStr, String path) {
 
-        try(FileWriter writer = new FileWriter(path))
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter(path)))
         {
             writer.write(String.valueOf(jsonObjectStr));
             writer.flush();
@@ -26,20 +23,19 @@ public class WritingReadingFile {
 
     public JsonArray readJsonArray(String arrayName, String path){
 
-        FileReader reader = null;
+        JsonArray jsonArray = new JsonArray();
 
-        try {
+        try(BufferedReader reader = new BufferedReader(new FileReader(path))) {
 
-            reader = new FileReader(path);
+            JsonObject jsonObject = (JsonObject) JsonParser.parseReader(reader);
+            jsonArray = jsonObject.getAsJsonArray(arrayName);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
-        JsonObject jsonObject = (JsonObject) JsonParser.parseReader(reader);
-        JsonArray jsonArray = jsonObject.getAsJsonArray(arrayName);
 
         return jsonArray;
     }
-
 }
