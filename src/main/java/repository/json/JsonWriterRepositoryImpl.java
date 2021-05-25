@@ -2,10 +2,9 @@ package repository.json;
 
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
-import model.Label;
 import model.Writer;
 import repository.WriterRepository;
-import repository.IOUtils;
+import utils.IOUtils;
 
 import java.util.ArrayList;
 import java.util.List;

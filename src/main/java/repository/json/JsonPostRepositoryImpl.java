@@ -3,9 +3,8 @@ package repository.json;
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 import model.Post;
-import model.Writer;
 import repository.PostRepository;
-import repository.IOUtils;
+import utils.IOUtils;
 
 import java.util.Date;
 import java.util.ArrayList;
