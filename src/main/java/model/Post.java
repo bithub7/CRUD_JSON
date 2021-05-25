@@ -10,6 +10,8 @@ public class Post {
     private String created;
     private String updated;
     private List<Label> labels;
+    private PostStatus postStatus;
+
 
     public Post(Long id, String content, String created, String updated, List<Label> labels) {
         this.id = id;

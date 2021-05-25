@@ -1,9 +1,9 @@
 import model.Label;
 import model.Post;
 import model.Writer;
-import repository.JsonLabelRepositoryImpl;
-import repository.JsonPostRepositoryImpl;
-import repository.JsonWriterRepositoryImpl;
+import repository.json.JsonLabelRepositoryImpl;
+import repository.json.JsonPostRepositoryImpl;
+import repository.json.JsonWriterRepositoryImpl;
 
 import java.util.ArrayList;
 import java.util.List;
